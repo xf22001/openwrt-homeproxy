@@ -1,10 +1,7 @@
-name: bulid 2 package
+name: bulid package
 
 on:
  workflow_dispatch:
-  push:
-    tags:
-      - v.**
 
 jobs:
   build:
@@ -14,8 +11,9 @@ jobs:
       fail-fast: false
       matrix:
         arch:
-          - aarch64_cortex-a53
           - x86_64
+          - aarch64_cortex-a53
+          - mipsel_24kc
 
     steps:
       - uses: actions/checkout@main
